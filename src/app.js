@@ -19,16 +19,23 @@ async function loadModel() {
     }
 }
 
-// Set up the camera
 async function setupCamera() {
     try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        video.srcObject = stream;
-        video.play();
-        console.log("Camera is ready and streaming");
+        const constraints = {
+            video: {
+                facingMode: "environment"  // This will attempt to use the back camera on mobile devices
+            }
+        };
+
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        const videoElement = document.getElementById('camera');
+        videoElement.srcObject = stream;
+        videoElement.play(); // Ensure the video plays after setting the source
+
+        console.log("Camera is ready and streaming from the back camera");
     } catch (error) {
         console.error('Error accessing the camera:', error);
-        predictionElement.innerText = 'Error accessing the camera.';
+        alert('Error accessing the camera.');
     }
 }
 
