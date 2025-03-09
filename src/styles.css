@@ -1,4 +1,22 @@
-body {
-    text-align: center;
-    font-family: 'Arial', sans-serif;
+h1 {
+    background-color: chocolate;
+}
+
+h2 {
+    color: red;
+}
+
+.customstyle {
+    color: tomato;
+    font-family: cursive;
+    font-style: italic;
+}
+
+button {
+    font-size: large;
+}
+
+video, canvas {
+    height: 240px;
+    width: 320px;
 }
